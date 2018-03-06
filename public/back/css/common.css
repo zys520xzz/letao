@@ -20,6 +20,10 @@ a,a:link,a:visited,a:hover,a:active {
 .mt_150 {
     margin-top: 150px;
 }
+.mb_20 {
+    margin-bottom: 20px;
+}
+
 /*管理页面右侧*/
 .lt_aside {
     width: 180px;
@@ -102,4 +106,10 @@ a,a:link,a:visited,a:hover,a:active {
 .lt_content .charts_2 {
     width: 45%;
     height: 400px;
+}
+
+.table.table-bordered th,
+.table.table-bordered  td {
+    text-align: center;
+    vertical-align: middle;
 }
