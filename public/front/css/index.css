@@ -7,25 +7,3 @@
     width: 33.33%;
     float: left;
 }
-
-/*商品区*/
-.lt_product {
-    padding: 10px;
-}
-.lt_product a {
-    float: left;
-    width: 48%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-.lt_product a:nth-child(odd){
-    margin-right: 4%;
-}
-.lt_product a .price {
-    color: red;
-}
-.lt_product a .old-price {
-    text-decoration: line-through;
-}

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+
+.lt_history {
+    padding: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.ht_title {
+    height: 21px;
+    line-height: 21px;
+}
+.ht_title .btn_empty {
+    height: 21px;
+    line-height: 21px;
+}
+
+.ht_content ul {
+    border: 1px dashed red;
+    border-bottom: none;
+}
+.ht_content li {
+    padding-left: 10px;
+    border-bottom: 1px dashed red;
+    height: 30px;
+    line-height: 30px;
+}
+.ht_content .btn_delete {
+    height: 30px;
+    line-height: 30px;
+}
