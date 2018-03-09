@@ -32,7 +32,9 @@
     line-height: 30px;
     /*margin-right: 5px;*/
 }
-
+.size span.now {
+    background-color: #be3f3d;
+}
 .num span {
     font-size: 12px;
     color: #666;
