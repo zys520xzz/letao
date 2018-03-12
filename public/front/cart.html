@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>乐淘-购物车</title>
+    <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="lib/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/cart.css"/>
+</head>
+<body>
+<div class="lt_container">
+    <!-- 头部-->
+    <div class="lt_header">
+        <a href="javascript:history.go(-1);" class="icon_left"><span class="mui-icon mui-icon-back"></span></a>
+        <h4>乐淘购物车</h4>
+    </div>
+
+    <!-- 内容部分-->
+    <div class="lt_main">
+
+        <div class="cate-nav">
+            <!-- 区域滚动盒子-->
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <ul id="OA_task_2" class="mui-table-view">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--下订单-->
+    <div class="lt_order">
+        <div class="mui-pull-left">订单总金额 &yen;<span>00.00</span></div>
+        <a href="javascript:;" class="mui-pull-right">生成订单</a>
+    </div>
+
+    <!-- 底部-->
+    <div class="lt_footer">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <span class="fa fa-home"></span>
+
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="category.html">
+                    <span class="fa fa-bars"></span>
+
+                    <p>分类</p>
+                </a>
+            </li>
+            <li class="now">
+                <a href="login.html">
+                    <span class="fa fa-shopping-cart"></span>
+
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <span class="fa fa-user"></span>
+
+                    <p>会员中心</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<script type="text/html" id="tpl">
+    {{each info v i}}
+    <li class="mui-table-view-cell">
+        <div class="mui-slider-right mui-disabled">
+            <a class="mui-btn mui-btn-blue mui-icon mui-icon-compose btn_edit"
+               data-id="{{v.id}}"
+               data-size="{{v.size}}"
+               data-product-size="{{v.productSize}}"
+               data-num="{{v.num}}"
+               data-product-num="{{v.productNum}}"
+                    ></a>
+            <a data-id="{{v.id}}" class="mui-btn mui-btn-red mui-icon mui-icon-trash btn_delete"></a>
+        </div>
+        <div class="mui-slider-handle">
+            <div class="mui-table-cell">
+
+                <div class="cart_img">
+                    <img src="{{v.pic[0].picAddr}}" alt="">
+                </div>
+                <div class="cart_info">
+                    <p class="proName mui-ellipsis-2">{{v.proName}}</p>
+                    <p>
+                        <span class="price">&yen;{{v.price}}</span>
+                        <span class="oldPrice">&yen;{{v.oldPrice}}</span>
+                        <span class="mui-pull-right">{{v.num}}双</span>
+                    </p>
+                    <p>鞋码：{{v.size}}</p>
+                </div>
+                <input type="checkbox" class="ck" data-price="{{v.price}}" data-num="{{v.num}}">
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+<script type="text/html" id="editTpl">
+
+    <div class="lt_edit_size">
+        尺码：
+        <%
+        var temp = productSize.split("-");
+        for(var i = +temp[0]; i <= temp[1]; i++) {
+        %>
+        <span class="{{i == size?'now':''}}">{{i}}</span>
+        <% } %>
+    </div>
+
+    <div class="lt_edit_num">
+        数量：
+        <div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{{productNum}}'>
+            <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+            <input class="mui-numbox-input" type="number" value="{{num}}" />
+            <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+        </div>
+    </div>
+
+</script>
+
+
+<script src="lib/mui/js/mui.min.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

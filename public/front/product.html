@@ -16,13 +16,13 @@
     <div class="lt_header">
         <a href="javascript:history.go(-1);" class="icon_left"><span class="mui-icon mui-icon-back"></span></a>
         <h4>商品列表</h4>
-        <a href="javascript:;" class="icon_right"><span class="mui-icon mui-icon-reload"></span></a>
+        <a href="javascript:location.reload();" class="icon_right"><span class="mui-icon mui-icon-reload"></span></a>
     </div>
 
     <!-- 内容部分-->
     <div class="lt_main">
 
-        <div class="cate-nav">
+
             <!-- 区域滚动盒子-->
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
@@ -30,7 +30,7 @@
 
                 </div>
             </div>
-        </div>
+
 
     </div>
 
@@ -46,60 +46,65 @@
 </div>
 
 
-<script type="text/template" id="tmp">
+<script type="text/template" id="tpl">
 
     <div class="mui-slider">
-        <!-- 图片-->
         <div class="mui-slider-group mui-slider-loop">
-            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img
-                    src="{{pic[pic.length-1].picAddr}}"/></a></div>
-            {{ each pic v i}}
-            <div class="mui-slider-item"><a href="#"><img src="{{v.picAddr}}"/></a></div>
-            {{ /each}}
-            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{pic[0].picAddr}}"/></a></div>
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{pic[pic.length-1].picAddr}}" /></a></div>
+
+            {{each pic v i}}
+            <div class="mui-slider-item"><a href="#"><img src="{{v.picAddr}}" /></a></div>
+            {{/each}}
+            <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{pic[0].picAddr}}" /></a></div>
         </div>
-        <!-- 小圆点-->
+
         <div class="mui-slider-indicator">
             {{each pic v i}}
-            <div class="mui-indicator {{i==0?mui-active:''}}"></div>
-            {{ /each}}
+            <div class="mui-indicator {{i==0?'mui-active':''}}"></div>
+            {{/each}}
         </div>
     </div>
 
-    <!-- 商品名称-->
+    <!--商品名称-->
     <div class="proName item">
         <strong>{{proName}}</strong>
     </div>
-    <!-- 商品价格-->
+
+    <!--商品价格-->
     <div class="item">
         价格：
         <span class="price">&yen;{{price}}</span>
         <span class="oldPrice">&yen;{{oldPrice}}</span>
     </div>
-    <!-- 尺码-->
-    <div class="size item">
+
+    <!--商品尺码-->
+    <div class="item size">
         尺码：
         <%
-        var temp =size.split('-')
-        for(var i = +temp[0]; i<=temp[1];i++){
+        var temp = size.split('-');
+        for(var i = +temp[0]; i <= temp[1]; i++) {
         %>
         <span>{{i}}</span>
-        <%}%>
+        <% } %>
+
     </div>
-    <!-- 数量-->
+
+
+    <!--商品数量-->
     <div class="num item">
         数量：
         <div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{{num}}'>
             <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-            <input class="mui-numbox-input" type="number" value="1"/>
+            <input class="mui-numbox-input" type="number" value="1" />
             <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
         </div>
-        <span>剩余数量：{{num}}双</span>
+        <span class="tips">剩余数量：{{num}}双</span>
     </div>
-    <!-- 详情-->
+
+    <!--商品详情-->
     <div class="proDesc item">
         详情：
-        <span>{{proDesc}}</span>
+        {{proDesc}}
     </div>
 
 </script>
